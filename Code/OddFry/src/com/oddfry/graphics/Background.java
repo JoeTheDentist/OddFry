@@ -24,8 +24,8 @@ public class Background {
 	 * Fill the screen with tiles
 	 */
 	public void draw() {
-		for (int i=0; i*tile_.h()<ResourcesUtil.GetScreen().getHeight(); i++) {
-			for (int j=0; j*tile_.w()<ResourcesUtil.GetScreen().getWidth(); j++) {
+		for (int i=0; i*tile_.h()<ResourcesUtil.GetScreen().getH(); i++) {
+			for (int j=0; j*tile_.w()<ResourcesUtil.GetScreen().getW(); j++) {
 				ResourcesUtil.GetScreen().drawImage(tile_, j*tile_.w(), i*tile_.h());
 			}
 		}

@@ -24,6 +24,8 @@ public class Screen extends SurfaceView implements
 	 */
 	public Screen(Context context) {
 		super(context);
+		h_ = ResourcesUtil.GetActivity().getWindowManager().getDefaultDisplay().getHeight();
+		w_ = ResourcesUtil.GetActivity().getWindowManager().getDefaultDisplay().getWidth();
 		ResourcesUtil.GetActivity().setContentView(this);
 		ResourcesUtil.SetScreen(this);
 		getHolder().addCallback(this);
@@ -48,8 +50,26 @@ public class Screen extends SurfaceView implements
 			canvas_ = null;
 		}
 	}
+	
+	
+	/**
+	 * Getter
+	 * @return height
+	 */
+	public float getH() {
+		return h_;
+	}
 
+	
+	/**
+	 * Getter
+	 * @return width
+	 */
+	public float getW() {
+		return w_;
+	}
 
+	
 	/**
 	 * Interface
 	 */
@@ -87,4 +107,6 @@ public class Screen extends SurfaceView implements
 
 	/* PRIVATE */
 	private Canvas canvas_;
+	private float h_;
+	private float w_;
 }

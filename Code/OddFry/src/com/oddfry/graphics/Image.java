@@ -63,5 +63,5 @@ public class Image {
 	
 	
 	/*		STATIC */
-	private static PictureContainer PC = new PictureContainer();
+	private static PictureContainer PC = PictureContainer.GetInstance();
 }

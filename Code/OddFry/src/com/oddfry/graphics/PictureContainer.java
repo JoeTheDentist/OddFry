@@ -8,7 +8,8 @@ import com.oddfry.globals.ResourcesUtil;
 import android.graphics.drawable.BitmapDrawable;
 
 /**
- * Container for all used bitmaps
+ * Container for all used bitmaps</br>
+ * Singleton
  * 
  * @author Guillaume Berard
  *
@@ -16,14 +17,7 @@ import android.graphics.drawable.BitmapDrawable;
 public class PictureContainer {
 	
 	/* PUBLIC */
-	/**
-	 * Constructor
-	 */
-	public PictureContainer() {
-		images_ = new HashMap<Integer, BitmapDrawable>();
-	}
-	
-	
+	/*		CLASS */
 	/**
 	 * Getter
 	 * @param image
@@ -41,6 +35,27 @@ public class PictureContainer {
 	}
 	
 	
+	/*		STATIC */
+	synchronized public static PictureContainer GetInstance() {
+		if (INSTANCE_ == null) {
+			INSTANCE_ = new PictureContainer();
+		}
+		return INSTANCE_;
+	}
+	
+	
 	/* PRIVATE */
+	/*		CLASS */
 	private HashMap<Integer, BitmapDrawable> images_;
+	
+	
+	/**
+	 * Constructor
+	 */
+	private PictureContainer() {
+		images_ = new HashMap<Integer, BitmapDrawable>();
+	}
+	
+	/*		STATIC */
+	static PictureContainer INSTANCE_;
 }

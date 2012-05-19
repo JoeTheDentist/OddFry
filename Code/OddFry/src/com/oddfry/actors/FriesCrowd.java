@@ -1,6 +1,10 @@
 package com.oddfry.actors;
 
 import java.util.LinkedList;
+import java.util.Random;
+
+import com.oddfry.globals.Globals;
+import com.oddfry.globals.ResourcesUtil;
 
 /**
  * All the normal fries.</br>
@@ -18,7 +22,15 @@ public class FriesCrowd {
 	 */
 	public FriesCrowd() {
 		fries_ = new LinkedList<NormalFry>();
-		//TODO gen
+		int numberOfFries = (int) ((DENSISTY_*ResourcesUtil.GetScreen().getH()*
+				ResourcesUtil.GetScreen().getW()) / 1000000);
+		Random rand = new Random(Globals.GetInstance().getTime());
+		for (int i=0; i<numberOfFries; i++) {
+			NormalFry fry = new NormalFry();
+			fry.setX(rand.nextFloat()*ResourcesUtil.GetScreen().getW());
+			fry.setY(rand.nextFloat()*ResourcesUtil.GetScreen().getH());
+			fries_.add(fry);
+		}
 	}
 	
 	
@@ -34,6 +46,7 @@ public class FriesCrowd {
 	
 	
 	/* PRIVATE */
+	/*		CLASS */
 	private LinkedList<NormalFry> fries_;
 	
 	
@@ -43,4 +56,8 @@ public class FriesCrowd {
 	private void sortFries() {
 		//TODO sort
 	}
+	
+	
+	/*		STATIC */
+	private float DENSISTY_ = 100; //number of fries in 1 kpixels² (1000x1000 pixels)
 }

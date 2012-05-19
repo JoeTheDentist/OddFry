@@ -8,6 +8,7 @@ import com.oddfry.physics.Movable;
 import com.oddfry.physics.Mover;
 
 public class Actor implements Drawable, Movable {	
+	
 	/* PUBLIC */
 	/**
 	 * Constructor

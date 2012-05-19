@@ -31,7 +31,9 @@ public class Grid {
 				break;
 			}
 		}
-		for ( int j=1; j<fullImage_.getBitmap().getBitmap().getHeight(); j++ ) {
+		for ( int j=1; 
+				j<fullImage_.getBitmap().getBitmap().getHeight(); 
+				j++ ) {
 			if ( fullImage_.getBitmap().getBitmap().getPixel(1,j) == -65281 ) {
 				height_ = j-1;
 				break;
@@ -46,7 +48,12 @@ public class Grid {
 			for (int j=0; j<hor; j++) {
 				BitmapDrawable currBitmap = new BitmapDrawable(
 						Bitmap.createBitmap(fullImage_.getBitmap().getBitmap(),
-								(int)(1+j*(width_+2)), (int)(1+i*(height_+2)), (int)width_, (int)height_, null, true));
+								(int)(1+j*(width_+2)), 
+								(int)(1+i*(height_+2)), 
+								(int)width_, 
+								(int)height_, 
+								null, 
+								true));
 				grid_[i*hor+j] = new Image(currBitmap);
 			}
 		}
