@@ -1,6 +1,7 @@
 package com.oddfry.update;
 
 import com.oddfry.actors.NormalFry;
+import com.oddfry.graphics.Background;
 
 /**
  * Loop which refreshes the menu
@@ -12,6 +13,7 @@ public class MenuLoop extends UpdateLoop {
 
 	//TEMP
 	private NormalFry fry_;
+	private Background back_;
 	
 	
 	/* PUBLIC */
@@ -20,6 +22,7 @@ public class MenuLoop extends UpdateLoop {
 	 */
 	public MenuLoop() {
 		fry_ = new NormalFry();
+		back_ = new Background();
 	}
 	
 	
@@ -27,8 +30,8 @@ public class MenuLoop extends UpdateLoop {
 	@Override
 	final protected void update() {
 		getScreen().lock();
+		back_.draw();
 		fry_.draw();
-		fry_.move();
 		getScreen().unlock();
 	}
 

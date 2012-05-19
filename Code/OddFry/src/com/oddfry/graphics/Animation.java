@@ -104,7 +104,7 @@ public class Animation {
 	private int tab_[];
 	private float period_;
 	private int currentFrame_; 			//we print grid[tab_[currentFrame_]]
-	private float timeOnLastDraw_; 
+	private long timeOnLastDraw_; 
 	private float offsetCurrentFrame_; 	//will be added to currentFrame_ when >= 1
 	private boolean cycleEnded_ = false;
 	
