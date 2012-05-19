@@ -31,6 +31,7 @@ public class Background {
 		}
 	}
 	
+	
 	/* PRIVATE */
 	private Image tile_;
 }

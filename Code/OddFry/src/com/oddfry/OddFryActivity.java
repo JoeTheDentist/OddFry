@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 
 /**
- * Main activity
+ * Main activity for the video game "The Odd Fry"
  * 
  * @author Guillaume Berard
  *

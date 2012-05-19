@@ -1,7 +1,5 @@
 package com.oddfry.graphics;
 
-import android.util.Log;
-
 import com.oddfry.globals.Globals;
 
 
@@ -113,7 +111,6 @@ public class Animation {
 	 * Update the animation, must be called at least once a frame
 	 */
 	private void update() {
-		Log.d("Anim", "### "+offsetCurrentFrame_+" "+Globals.GetInstance().getTime()+" "+timeOnLastDraw_+" "+period_);
 		offsetCurrentFrame_ += (Globals.GetInstance().getTime() - timeOnLastDraw_) / period_;
 		currentFrame_ += (int) (offsetCurrentFrame_);
 		if ( currentFrame_ == tab_.length ) {
