@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, OddFryActivity!</string>
+    <string name="app_name">OddFry</string>
+
+</resources>
