@@ -5,6 +5,9 @@ import com.oddfry.globals.ResourcesUtil;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.WindowManager.LayoutParams;
 
 
 /**
@@ -19,6 +22,10 @@ public class OddFryActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ResourcesUtil.SetActivity(this);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().addFlags(LayoutParams.FLAG_KEEP_SCREEN_ON);
+        getWindow().setFlags(	WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        						WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Globals.GetInstance();
         Globals.GetInstance().setMenu();
         Globals.GetInstance().run();

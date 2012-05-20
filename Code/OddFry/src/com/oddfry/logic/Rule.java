@@ -1,5 +1,7 @@
 package com.oddfry.logic;
 
+import com.oddfry.physics.MoveUpdater;
+
 /**
  * Class that represents a game rule.</br>
  * It defines how normal fries and the odd fry
@@ -8,6 +10,18 @@ package com.oddfry.logic;
  * @author Guillaume Berard
  *
  */
-public class Rule {
-
+public abstract class Rule {
+	/* PUBLIC */
+	/**
+	 * Get the updater for the behavior of normal fries
+	 * @return updater
+	 */
+	public abstract MoveUpdater getNormalUpdater();
+	
+	
+	/**
+	 * Get the updater for the behavior of the odd fry
+	 * @return
+	 */
+	public abstract MoveUpdater getOddUpdater();
 }

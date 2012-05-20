@@ -59,5 +59,5 @@ public class FriesCrowd {
 	
 	
 	/*		STATIC */
-	private float DENSISTY_ = 100; //number of fries in 1 kpixels² (1000x1000 pixels)
+	private float DENSISTY_ = 100; //number of fries in 1 kpixels²
 }
