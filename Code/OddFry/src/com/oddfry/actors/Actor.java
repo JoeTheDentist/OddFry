@@ -7,7 +7,7 @@ import com.oddfry.graphics.Image;
 import com.oddfry.physics.Movable;
 import com.oddfry.physics.Mover;
 
-public class Actor implements Drawable, Movable, Comparable<Actor> {	
+public abstract class Actor implements Drawable, Movable, Comparable<Actor> {	
 	
 	/* PUBLIC */
 	/**
@@ -61,6 +61,11 @@ public class Actor implements Drawable, Movable, Comparable<Actor> {
 	 */
 	public void moveX(float x) {
 		x_ += x;
+		if ( x>0 ) {
+			lookRight();
+		} else {
+			lookLeft();
+		}
 	}
 	
 	
@@ -70,6 +75,11 @@ public class Actor implements Drawable, Movable, Comparable<Actor> {
 	 */
 	public void moveY(float y) {
 		y_ += y;
+		if ( y>0 ) {
+			lookDown();
+		} else {
+			lookUp();
+		}
 	}
 	
 	
@@ -148,6 +158,30 @@ public class Actor implements Drawable, Movable, Comparable<Actor> {
 	protected Mover getMover() {
 		return mover_;
 	}
+	
+	
+	/**
+	 * Look left
+	 */
+	protected abstract void lookLeft();
+	
+	
+	/**
+	 * Look right
+	 */
+	protected abstract void lookRight();
+	
+	
+	/**
+	 * Look up
+	 */
+	protected abstract void lookUp();
+	
+	
+	/**
+	 * Look down
+	 */
+	protected abstract void lookDown();
 	
 	
 	/* PRIVATE */

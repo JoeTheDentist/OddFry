@@ -28,7 +28,7 @@ public class MoveUpdaterMenu extends MoveUpdater {
 		if (Globals.GetInstance().getTime() - timeLastMove_ > lastDuration_) {
 			Random rand = new Random();
 			timeLastMove_ = Globals.GetInstance().getTime();
-			lastDuration_ = 10000+rand.nextInt(20000);
+			lastDuration_ = 1000+rand.nextInt(2000);
 			switch (rand.nextInt(4)) {
 			case 0:
 				lastDirection_ = Direction.LEFT;
@@ -85,17 +85,21 @@ public class MoveUpdaterMenu extends MoveUpdater {
 	private void setInScreen(Movable movable) {
 		if ( movable.getX() < 0 ) {
 			movable.setX(0);
+			lastDirection_ = Direction.DOWN;
 		} else if ( movable.getX() + movable.getW() > ResourcesUtil.GetScreen().getW() ) {
 			movable.setX(ResourcesUtil.GetScreen().getW()-movable.getW());
+			lastDirection_ = Direction.UP;
 		}
 		if ( movable.getY() < 0 ) {
 			movable.setY(0);
+			lastDirection_ = Direction.RIGHT;
 		} else if ( movable.getY() + movable.getH() > ResourcesUtil.GetScreen().getH() ) {
 			movable.setY(ResourcesUtil.GetScreen().getH()-movable.getH());
+			lastDirection_ = Direction.LEFT;
 		}
 	}
 	
 	
 	/*		STATIC */
-	private float SPEED_ = 15;	//pixels per second
+	private float SPEED_ = 25;	//pixels per second
 }
