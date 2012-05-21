@@ -15,7 +15,7 @@ public class Mover {
 	 */
 	public Mover(Movable movable) {
 		movable_ = movable;
-		moveUpdater_ = new MoveUpdaterNull();
+		moveUpdater_ = new MoveUpdaterMenu();
 	}
 	
 	

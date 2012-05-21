@@ -2,21 +2,15 @@ package com.oddfry.logic;
 
 
 /**
- * Score of the player
+ * Score of the player</br>
+ * Singleton
  * 
  * @author Guillaume Berard
  *
  */
 public class Score {
 	/* PUBLIC */
-	/**
-	 * Constructor
-	 */
-	public Score() {
-		
-	}
-	
-	
+	/* 		CLASS */
 	/**
 	 * Update the score
 	 */
@@ -34,6 +28,28 @@ public class Score {
 	}
 	
 	
+	/*		STATIC */
+	synchronized public static Score GetInstance() {
+		if (INSTANCE_ == null) {
+			INSTANCE_ = new Score();
+		}
+		return INSTANCE_;
+	}
+	
+	
 	/* PRIVATE */
+	/*		CLASS */
 	private int score_;
+	
+	
+	/**
+	 * Constructor
+	 */
+	private Score() {
+		
+	}
+	
+	
+	/*		STATIC */
+	private static Score INSTANCE_;
 }

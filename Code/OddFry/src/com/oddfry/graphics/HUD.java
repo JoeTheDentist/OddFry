@@ -1,6 +1,8 @@
 package com.oddfry.graphics;
 
+import com.oddfry.globals.ResourcesUtil;
 import com.oddfry.logic.Score;
+import com.oddfry.logic.Time;
 
 /**
  * Graphics for foreground, time, score and transition message.</br>
@@ -18,10 +20,21 @@ public class HUD {
 	 * Constructor
 	 */
 	public HUD() {
-		
+		score_ = Score.GetInstance();
+		time_ = Time.GetInstance();
+	}
+	
+	
+	/**
+	 * Draw score and time
+	 */
+	public void draw() {
+		ResourcesUtil.GetScreen().drawTextLeft(Integer.toString(score_.getScore()), false);
+		ResourcesUtil.GetScreen().drawTextRight(Integer.toString(time_.getTimeLeft()), time_.getTimeLeft() > 0);
 	}
 	
 	
 	/* PRIVATE */
 	private Score score_;
+	private Time time_;
 }

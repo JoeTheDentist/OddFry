@@ -7,7 +7,7 @@ import com.oddfry.graphics.Image;
 import com.oddfry.physics.Movable;
 import com.oddfry.physics.Mover;
 
-public class Actor implements Drawable, Movable {	
+public class Actor implements Drawable, Movable, Comparable<Actor> {	
 	
 	/* PUBLIC */
 	/**
@@ -113,6 +113,16 @@ public class Actor implements Drawable, Movable {
 	 */
 	public void move() {
 		getMover().move();
+	}
+	
+	
+	/**
+	 * Order, for sorting
+	 * @param a
+	 * @return
+	 */
+	public int compareTo(Actor a) {
+		return (int) (getY()-a.getY());
 	}
 	
 	

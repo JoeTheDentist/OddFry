@@ -34,6 +34,7 @@ public class MenuLoop extends UpdateLoop {
 	final protected void update() {
 		getScreen().lock();
 		back_.draw();
+		fries_.move();
 		fries_.draw();
 		menu_.draw();
 		getScreen().unlock();
@@ -43,7 +44,7 @@ public class MenuLoop extends UpdateLoop {
 	@Override
 	protected void postUpdate() {
 		try {
-			Thread.sleep(100);
+			Thread.sleep(50);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

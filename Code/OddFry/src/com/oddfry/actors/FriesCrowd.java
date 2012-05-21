@@ -1,5 +1,6 @@
 package com.oddfry.actors;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -45,6 +46,16 @@ public class FriesCrowd {
 	}
 	
 	
+	/**
+	 * Move all the fries
+	 */
+	public void move() {
+		for (NormalFry fry : fries_) {
+			fry.move();
+		}
+	}
+	
+	
 	/* PRIVATE */
 	/*		CLASS */
 	private LinkedList<NormalFry> fries_;
@@ -54,7 +65,7 @@ public class FriesCrowd {
 	 * Sort fires according to their y-level
 	 */
 	private void sortFries() {
-		//TODO sort
+		Collections.sort(fries_);
 	}
 	
 	

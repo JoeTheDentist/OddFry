@@ -32,9 +32,9 @@ public class Globals {
 	 * Get current game time
 	 * @return current time in milliseconds
 	 */
-	public long getTime() {
+	public int getTime() {
 		//TODO game can slow down or speed up
-		return System.currentTimeMillis();
+		return (int) System.currentTimeMillis();
 	}
 	
 	

@@ -9,6 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -35,14 +36,17 @@ public class Screen extends SurfaceView implements
 		menuPaint_.setColor(Color.RED);
 		menuPaint_.setStyle(Style.FILL);
 		menuPaint_.setTextSize(100);
+		menuPaint_.setTypeface(Typeface.MONOSPACE);
 		normalTextPaint_ = new Paint();
 		normalTextPaint_.setColor(Color.WHITE);
 		normalTextPaint_.setStyle(Style.FILL);
 		normalTextPaint_.setTextSize(20);
+		normalTextPaint_.setTypeface(Typeface.MONOSPACE);
 		warningTextPaint_ = new Paint();
 		warningTextPaint_.setColor(Color.RED);
 		warningTextPaint_.setStyle(Style.FILL);
 		warningTextPaint_.setTextSize(20);
+		normalTextPaint_.setTypeface(Typeface.MONOSPACE);
 		ResourcesUtil.GetActivity().setContentView(this);
 		ResourcesUtil.SetScreen(this);
 		getHolder().addCallback(this);
@@ -132,8 +136,38 @@ public class Screen extends SurfaceView implements
 			int pos = 100;
 			for (String s : menu) {
 				canvas_.drawText(s, 10, pos, menuPaint_);
-				pos += 100;
+				pos += 150;
 			}
+		} else {
+			Log.e("Screen", "### Can't draw");
+		}
+	}
+	
+	
+	/**
+	 * Draw text on top right
+	 * @param msg
+	 * @param warning
+	 */
+	void drawTextRight(String msg, boolean warning) {
+		if (canvas_ != null) {
+			//TODO pos, warning
+			canvas_.drawText(msg, 0, 0, normalTextPaint_);
+		} else {
+			Log.e("Screen", "### Can't draw");
+		}
+	}
+	
+	
+	/**
+	 * Draw text on top left
+	 * @param msg
+	 * @param warning
+	 */
+	void drawTextLeft(String msg, boolean warning) {
+		//TODO pos, warning
+		if (canvas_ != null) {
+			canvas_.drawText(msg, 0, 0, warningTextPaint_);
 		} else {
 			Log.e("Screen", "### Can't draw");
 		}
