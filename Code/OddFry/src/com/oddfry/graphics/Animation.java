@@ -1,5 +1,7 @@
 package com.oddfry.graphics;
 
+import java.util.Random;
+
 import com.oddfry.globals.Globals;
 
 
@@ -45,9 +47,9 @@ public class Animation {
 
 	
 	/**
-	 * 
+	 * Set the series of images
 	 * @param tab Indices of the pictures the the animation grid
-	 * @param period Animation's period in ms
+	 * @param period Animation's period in milliseconds
 	 */
 	public void setAnimation(int tab[], float period) {
 		tab_ = new int[tab.length];
@@ -55,7 +57,8 @@ public class Animation {
 			tab_[i] = tab[i];
 		}
 		period_ = period;
-		currentFrame_ = 0;
+		Random rand = new Random();
+		currentFrame_ = rand.nextInt(tab.length);
 	}
 
 	
