@@ -130,7 +130,7 @@ public class Animation {
 	 * @see Grid
 	 */	
 	private void initialize(int resource) {
-		grid_ = new Grid(resource);
+		grid_ = GridContainer.GetInstance().getGrid(resource);
 		int t[] = {0};
 		setAnimation(t, 1);
 		timeOnLastDraw_ = Globals.GetInstance().getTime();

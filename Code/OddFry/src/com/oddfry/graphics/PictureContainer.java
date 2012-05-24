@@ -27,9 +27,10 @@ public class PictureContainer {
 		if ( images_.containsKey(image) ) {
 			return images_.get(image);
 		} else {
-			//Faire comme ca... sinon pas la bonne taille
+			//Do that... for size...
 			InputStream is = ResourcesUtil.GetActivity().getResources().openRawResource(image);
 			BitmapDrawable bd = new BitmapDrawable(is);
+			images_.put(image, bd);
 			return bd;
 		}
 	}
@@ -55,6 +56,7 @@ public class PictureContainer {
 	private PictureContainer() {
 		images_ = new HashMap<Integer, BitmapDrawable>();
 	}
+	
 	
 	/*		STATIC */
 	static PictureContainer INSTANCE_;
