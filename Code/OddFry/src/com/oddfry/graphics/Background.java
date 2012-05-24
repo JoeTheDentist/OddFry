@@ -1,7 +1,6 @@
 package com.oddfry.graphics;
 
 import com.oddfry.R;
-import com.oddfry.globals.ResourcesUtil;
 
 /**
  * Class aimed to fill the background
@@ -24,9 +23,9 @@ public class Background {
 	 * Fill the screen with tiles
 	 */
 	public void draw() {
-		for (int i=0; i*tile_.h()<ResourcesUtil.GetScreen().getH(); i++) {
-			for (int j=0; j*tile_.w()<ResourcesUtil.GetScreen().getW(); j++) {
-				ResourcesUtil.GetScreen().drawImage(tile_, j*tile_.w(), i*tile_.h());
+		for (int i=0; i*tile_.h()<Screen.GetInstance().getH(); i++) {
+			for (int j=0; j*tile_.w()<Screen.GetInstance().getW(); j++) {
+				Screen.GetInstance().drawImage(tile_, j*tile_.w(), i*tile_.h());
 			}
 		}
 	}

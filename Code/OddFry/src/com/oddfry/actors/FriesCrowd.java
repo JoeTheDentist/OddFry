@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Random;
 
 import com.oddfry.controls.Controller;
-import com.oddfry.globals.ResourcesUtil;
+import com.oddfry.graphics.Screen;
 
 /**
  * All the normal fries.</br>
@@ -23,13 +23,13 @@ public class FriesCrowd {
 	 */
 	public FriesCrowd() {
 		fries_ = new LinkedList<Actor>();
-		int numberOfFries = (int) ((DENSISTY_*ResourcesUtil.GetScreen().getH()*
-				ResourcesUtil.GetScreen().getW()) / 1000000);
+		int numberOfFries = (int) ((DENSISTY_*Screen.GetInstance().getH()*
+				Screen.GetInstance().getW()) / 1000000);
 		Random rand = new Random();
 		for (int i=0; i<numberOfFries; i++) {
 			NormalFry fry = new NormalFry();
-			fry.setX(rand.nextFloat()*ResourcesUtil.GetScreen().getW());
-			fry.setY(rand.nextFloat()*ResourcesUtil.GetScreen().getH());
+			fry.setX(rand.nextFloat()*Screen.GetInstance().getW());
+			fry.setY(rand.nextFloat()*Screen.GetInstance().getH());
 			fries_.add(fry);
 		}
 		oddFry_ = new OddFry();

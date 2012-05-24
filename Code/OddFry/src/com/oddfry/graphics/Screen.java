@@ -228,7 +228,6 @@ SurfaceHolder.Callback {
 		warningTextPaint_.setTextSize(20);
 		normalTextPaint_.setTypeface(Typeface.MONOSPACE);
 		ResourcesUtil.GetActivity().setContentView(this);
-		ResourcesUtil.SetScreen(this);
 		getHolder().addCallback(this);
 		setFocusable(true);
 	}

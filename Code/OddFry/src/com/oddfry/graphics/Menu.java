@@ -4,7 +4,6 @@ import java.util.LinkedList;
 
 import com.oddfry.controls.Controlled;
 import com.oddfry.globals.Globals;
-import com.oddfry.globals.ResourcesUtil;
 
 
 /**
@@ -30,7 +29,7 @@ public class Menu implements Controlled {
 	 * Draw the menu
 	 */
 	public void draw() {
-		ResourcesUtil.GetScreen().drawMenu(menus_);
+		Screen.GetInstance().drawMenu(menus_);
 	}
 	
 	
@@ -40,7 +39,7 @@ public class Menu implements Controlled {
 	 * @param y
 	 */
 	public void point(float x, float y) {
-		switch (ResourcesUtil.GetScreen().choiceMenu(menus_, x, y)) {
+		switch (Screen.GetInstance().choiceMenu(menus_, x, y)) {
 		case 0:
 			Globals.GetInstance().setGame();
 			break;

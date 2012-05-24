@@ -2,7 +2,9 @@ package com.oddfry.actors;
 
 import com.oddfry.R;
 import com.oddfry.graphics.Animation;
+import com.oddfry.logic.RuleGenerator;
 import com.oddfry.physics.Direction;
+import com.oddfry.physics.Mover;
 
 /**
  * Normal fry, not clickable
@@ -18,6 +20,7 @@ public class NormalFry extends Actor {
 	 */
 	public NormalFry() {
 		super();
+		mover_ = new Mover(this, RuleGenerator.GetInstance().getRule().getNormalUpdater());
 		anim_ = new Animation(R.drawable.fry_states);
 		//TODO, set good img and period
 		int tab[] = {0,1,2,3};

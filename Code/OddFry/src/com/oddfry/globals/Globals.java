@@ -59,7 +59,7 @@ public class Globals {
 	 * Win
 	 */
 	public void win() {
-		((GameLoop)loop_).win();
+		getGame().win();
 	}
 	
 	
@@ -67,7 +67,7 @@ public class Globals {
 	 * Loose
 	 */
 	public void loose() {
-		((GameLoop)loop_).loose();
+		getGame().loose();
 	}
 	
 	
@@ -76,8 +76,16 @@ public class Globals {
 	 * @return current time in milliseconds
 	 */
 	public int getTime() {
-		//TODO game can slow down or speed up
 		return (int) System.currentTimeMillis();
+	}
+	
+	
+	/**
+	 * Getter
+	 * @return game, if created
+	 */
+	public GameLoop getGame() {
+		return (GameLoop)loop_;
 	}
 	
 	

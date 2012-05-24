@@ -2,10 +2,8 @@ package com.oddfry.physics;
 
 import java.util.Random;
 
-import android.util.Log;
-
 import com.oddfry.globals.Globals;
-import com.oddfry.globals.ResourcesUtil;
+import com.oddfry.graphics.Screen;
 
 /**
  * Behavior of all fries for the menu
@@ -89,15 +87,15 @@ public class MoveUpdaterMenu extends MoveUpdater {
 		if ( movable.getX() < 0 ) {
 			movable.setX(0);
 			lastDirection_ = Direction.DOWN;
-		} else if ( movable.getX() + movable.getW() > ResourcesUtil.GetScreen().getW() ) {
-			movable.setX(ResourcesUtil.GetScreen().getW()-movable.getW());
+		} else if ( movable.getX() + movable.getW() > Screen.GetInstance().getW() ) {
+			movable.setX(Screen.GetInstance().getW()-movable.getW());
 			lastDirection_ = Direction.UP;
 		}
 		if ( movable.getY() < 0 ) {
 			movable.setY(0);
 			lastDirection_ = Direction.RIGHT;
-		} else if ( movable.getY() + movable.getH() > ResourcesUtil.GetScreen().getH() ) {
-			movable.setY(ResourcesUtil.GetScreen().getH()-movable.getH());
+		} else if ( movable.getY() + movable.getH() > Screen.GetInstance().getH() ) {
+			movable.setY(Screen.GetInstance().getH()-movable.getH());
 			lastDirection_ = Direction.LEFT;
 		}
 	}

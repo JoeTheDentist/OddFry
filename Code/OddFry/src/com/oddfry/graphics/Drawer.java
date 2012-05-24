@@ -1,7 +1,5 @@
 package com.oddfry.graphics;
 
-import com.oddfry.globals.ResourcesUtil;
-
 public class Drawer {
 	
 	/* PUBLIC */
@@ -18,7 +16,7 @@ public class Drawer {
 	 * Draw the drawable now !
 	 */
 	public void draw() {
-		ResourcesUtil.GetScreen().drawImage(drawable_.getImage(), drawable_.getX(), drawable_.getY());
+		Screen.GetInstance().drawImage(drawable_.getImage(), drawable_.getX(), drawable_.getY());
 	}
 	
 	

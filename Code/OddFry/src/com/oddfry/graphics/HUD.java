@@ -1,6 +1,5 @@
 package com.oddfry.graphics;
 
-import com.oddfry.globals.ResourcesUtil;
 import com.oddfry.logic.Score;
 import com.oddfry.logic.Time;
 
@@ -29,8 +28,8 @@ public class HUD {
 	 * Draw score and time
 	 */
 	public void draw() {
-		ResourcesUtil.GetScreen().drawTextLeft(Integer.toString(score_.getScore()), false);
-		ResourcesUtil.GetScreen().drawTextRight(Integer.toString(time_.getTimeLeft()), time_.getTimeLeft() > 0);
+		Screen.GetInstance().drawTextLeft(Integer.toString(score_.getScore()), false);
+		Screen.GetInstance().drawTextRight(Integer.toString(time_.getTimeLeft()), time_.getTimeLeft() > 0);
 	}
 	
 	

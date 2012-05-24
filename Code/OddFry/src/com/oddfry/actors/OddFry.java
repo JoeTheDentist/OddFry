@@ -4,7 +4,9 @@ import com.oddfry.R;
 import com.oddfry.controls.Controlled;
 import com.oddfry.globals.Globals;
 import com.oddfry.graphics.Animation;
+import com.oddfry.logic.RuleGenerator;
 import com.oddfry.physics.Direction;
+import com.oddfry.physics.Mover;
 
 /**
  * The odd fry, clickable !
@@ -20,6 +22,7 @@ public class OddFry extends Actor implements Controlled {
 	 */
 	public OddFry() {
 		super();
+		mover_ = new Mover(this, RuleGenerator.GetInstance().getRule().getOddUpdater());
 		anim_ = new Animation(R.drawable.oddfry_states);
 		//TODO, set good img and period
 		int tab[] = {0,1,2,3};

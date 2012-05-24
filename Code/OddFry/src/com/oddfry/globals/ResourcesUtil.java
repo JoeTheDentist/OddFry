@@ -1,9 +1,13 @@
 package com.oddfry.globals;
 
-import com.oddfry.graphics.Screen;
-
 import android.app.Activity;
 
+/**
+ * Resources
+ * 
+ * @author Guillaume Berard
+ *
+ */
 public class ResourcesUtil {
 	/* PUBLIC */
 	/**
@@ -24,25 +28,6 @@ public class ResourcesUtil {
 	}
 	
 	
-	/**
-	 * Setter
-	 * @param screen
-	 */
-	public static void SetScreen(Screen screen) {
-		SCREEN_ = screen;
-	}
-	
-	
-	/**
-	 * Getter
-	 * @param screen
-	 */
-	public static Screen GetScreen() {
-		return SCREEN_;
-	}
-	
-	
 	/* PRIVATE */
 	private static Activity ACTIVITY_;
-	private static Screen SCREEN_;
 }

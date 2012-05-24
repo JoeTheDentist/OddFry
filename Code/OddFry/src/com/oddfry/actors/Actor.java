@@ -15,7 +15,6 @@ public abstract class Actor implements Drawable, Movable, Comparable<Actor> {
 	 */
 	public Actor() {
 		drawer_ = new Drawer(this);
-		mover_ = new Mover(this);
 	}
 	
 	
@@ -138,6 +137,7 @@ public abstract class Actor implements Drawable, Movable, Comparable<Actor> {
 	
 	/* PROTECTED */
 	protected Animation anim_;
+	protected Mover mover_;
 	protected float x_;
 	protected float y_;
 	
@@ -168,7 +168,6 @@ public abstract class Actor implements Drawable, Movable, Comparable<Actor> {
 	
 	/* PRIVATE */
 	private Drawer drawer_;
-	private Mover mover_;
 	
 	
 	/**
