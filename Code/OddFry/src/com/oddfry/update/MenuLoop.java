@@ -1,6 +1,7 @@
 package com.oddfry.update;
 
 import com.oddfry.actors.FriesCrowd;
+import com.oddfry.controls.MenuController;
 import com.oddfry.graphics.Background;
 import com.oddfry.graphics.Menu;
 
@@ -11,12 +12,6 @@ import com.oddfry.graphics.Menu;
  *
  */
 public class MenuLoop extends UpdateLoop {
-
-	//TEMP
-	private FriesCrowd fries_;
-	private Background back_;
-	private Menu menu_;
-	
 	
 	/* PUBLIC */
 	/**
@@ -26,6 +21,8 @@ public class MenuLoop extends UpdateLoop {
 		back_ = new Background();
 		fries_ = new FriesCrowd();
 		menu_ = new Menu();
+		MenuController controller = new MenuController();
+		controller.setTarget(menu_);
 	}
 	
 	
@@ -49,4 +46,10 @@ public class MenuLoop extends UpdateLoop {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	/* PRIVATE */
+	private FriesCrowd fries_;
+	private Background back_;
+	private Menu menu_;
 }

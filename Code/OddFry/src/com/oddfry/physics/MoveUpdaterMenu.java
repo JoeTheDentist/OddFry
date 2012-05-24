@@ -2,6 +2,8 @@ package com.oddfry.physics;
 
 import java.util.Random;
 
+import android.util.Log;
+
 import com.oddfry.globals.Globals;
 import com.oddfry.globals.ResourcesUtil;
 
@@ -20,6 +22,7 @@ public class MoveUpdaterMenu extends MoveUpdater {
 	public MoveUpdaterMenu() {
 		super();
 		lastTime_ = Globals.GetInstance().getTime();
+		timeLastMove_ = Globals.GetInstance().getTime();
 	}
 	
 	

@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Random;
 
-import com.oddfry.globals.Globals;
+import com.oddfry.controls.Controller;
 import com.oddfry.globals.ResourcesUtil;
 
 /**
@@ -22,16 +22,18 @@ public class FriesCrowd {
 	 * Constructor
 	 */
 	public FriesCrowd() {
-		fries_ = new LinkedList<NormalFry>();
+		fries_ = new LinkedList<Actor>();
 		int numberOfFries = (int) ((DENSISTY_*ResourcesUtil.GetScreen().getH()*
 				ResourcesUtil.GetScreen().getW()) / 1000000);
-		Random rand = new Random(Globals.GetInstance().getTime());
+		Random rand = new Random();
 		for (int i=0; i<numberOfFries; i++) {
 			NormalFry fry = new NormalFry();
 			fry.setX(rand.nextFloat()*ResourcesUtil.GetScreen().getW());
 			fry.setY(rand.nextFloat()*ResourcesUtil.GetScreen().getH());
 			fries_.add(fry);
 		}
+		oddFry_ = new OddFry();
+		fries_.add(oddFry_);
 	}
 	
 	
@@ -40,7 +42,7 @@ public class FriesCrowd {
 	 */
 	public void draw() {
 		sortFries();
-		for (NormalFry fry : fries_) {
+		for (Actor fry : fries_) {
 			fry.draw();
 		}
 	}
@@ -50,15 +52,25 @@ public class FriesCrowd {
 	 * Move all the fries
 	 */
 	public void move() {
-		for (NormalFry fry : fries_) {
+		for (Actor fry : fries_) {
 			fry.move();
 		}
 	}
 	
 	
+	/**
+	 * Setter
+	 * @param controller
+	 */
+	public void setController(Controller controller) {
+		controller.setTarget(oddFry_);
+	}
+	
+	
 	/* PRIVATE */
 	/*		CLASS */
-	private LinkedList<NormalFry> fries_;
+	private LinkedList<Actor> fries_;
+	private OddFry oddFry_;
 	
 	
 	/**

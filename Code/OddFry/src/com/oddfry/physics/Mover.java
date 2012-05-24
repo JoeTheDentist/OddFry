@@ -1,7 +1,7 @@
 package com.oddfry.physics;
 
 /**
- * 
+ * Move movables
  * 
  * @author Guillaume Berard
  *
@@ -10,7 +10,7 @@ public class Mover {
 	
 	/* PUBLIC */
 	/**
-	 * COnstructor
+	 * Constructor
 	 * @param movable
 	 */
 	public Mover(Movable movable) {
@@ -20,7 +20,7 @@ public class Mover {
 	
 	
 	/**
-	 * COnstructor
+	 * Constructor
 	 * @param movable
 	 * @param moveUpdater
 	 */

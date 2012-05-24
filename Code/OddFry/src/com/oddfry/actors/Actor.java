@@ -143,24 +143,6 @@ public abstract class Actor implements Drawable, Movable, Comparable<Actor> {
 	
 	
 	/**
-	 * Getter
-	 * @return drawer
-	 */
-	protected Drawer getDrawer() {
-		return drawer_;
-	}
-	
-	
-	/**
-	 * Getter
-	 * @return mover
-	 */
-	protected Mover getMover() {
-		return mover_;
-	}
-	
-	
-	/**
 	 * Look left
 	 */
 	protected abstract void lookLeft();
@@ -187,4 +169,22 @@ public abstract class Actor implements Drawable, Movable, Comparable<Actor> {
 	/* PRIVATE */
 	private Drawer drawer_;
 	private Mover mover_;
+	
+	
+	/**
+	 * Getter
+	 * @return drawer
+	 */
+	private Drawer getDrawer() {
+		return drawer_;
+	}
+	
+	
+	/**
+	 * Getter
+	 * @return mover
+	 */
+	private Mover getMover() {
+		return mover_;
+	}
 }

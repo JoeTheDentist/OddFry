@@ -17,6 +17,8 @@ import android.view.WindowManager.LayoutParams;
  *
  */
 public class OddFryActivity extends Activity {
+	
+	/* PUBLIC */
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,14 +30,15 @@ public class OddFryActivity extends Activity {
         						WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Globals.GetInstance();
         Globals.GetInstance().setMenu();
-        Globals.GetInstance().run();
     }
     
     
+    /* PROTECTED */
     @Override
 	protected void onDestroy() {
 		super.onDestroy();
 		//Brutal but it works
 		android.os.Process.killProcess(android.os.Process.myPid());
 	}
+    
 }

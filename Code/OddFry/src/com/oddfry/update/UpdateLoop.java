@@ -1,6 +1,5 @@
 package com.oddfry.update;
 
-import com.oddfry.globals.ResourcesUtil;
 import com.oddfry.graphics.Screen;
 
 /**
@@ -12,8 +11,29 @@ import com.oddfry.graphics.Screen;
 public abstract class UpdateLoop extends Thread {
 	
 	/* PUBLIC */
+	/**
+	 * Update
+	 */
 	public UpdateLoop() {
-		screen_ = new Screen(ResourcesUtil.GetActivity());
+		screen_ = Screen.GetInstance();
+	}
+	
+	
+	/**
+	 * Getter
+	 * @return true if running
+	 */
+	synchronized public boolean isRunning() {
+		return running_;
+	}
+	
+	
+	/**
+	 * Setter
+	 * @param running
+	 */
+	synchronized public void setRunning(boolean running) {
+		running_ = running;
 	}
 	
 	
@@ -54,22 +74,4 @@ public abstract class UpdateLoop extends Thread {
 	/* PRIVATE */
 	private Screen screen_;
 	private boolean running_;
-	
-	
-	/**
-	 * Getter
-	 * @return true if running
-	 */
-	synchronized private boolean isRunning() {
-		return running_;
-	}
-	
-	
-	/**
-	 * Setter
-	 * @param running
-	 */
-	synchronized private void setRunning(boolean running) {
-		running_ = running;
-	}
 }

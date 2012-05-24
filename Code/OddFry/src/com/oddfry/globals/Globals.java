@@ -13,18 +13,61 @@ public class Globals {
 	/* PUBLIC */
 	/*		CLASS */
 	/**
-	 * Starts looping
+	 * Display and update menus
 	 */
-	public void run() {
+	public void setMenu() {
+		if ( loop_ != null ) {
+			loop_.setRunning(false);
+			try {
+				loop_.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		loop_ = new MenuLoop();
 		loop_.start();
 	}
 	
 	
 	/**
-	 * Display and update menus
+	 * Display and update game
 	 */
-	public void setMenu() {
-		loop_ = new MenuLoop();
+	public void setGame() {
+		if ( loop_ != null ) {
+			loop_.setRunning(false);
+			try {
+				loop_.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		loop_ = new GameLoop();
+		loop_.start();
+	}
+	
+	
+	/**
+	 * Stop the app
+	 */
+	public void stopApp() {
+		//Oh yeah! 
+		android.os.Process.killProcess(android.os.Process.myPid());
+	}
+	
+	
+	/**
+	 * Win
+	 */
+	public void win() {
+		((GameLoop)loop_).win();
+	}
+	
+	
+	/**
+	 * Loose
+	 */
+	public void loose() {
+		((GameLoop)loop_).loose();
 	}
 	
 	
