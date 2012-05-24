@@ -1,5 +1,6 @@
 package com.oddfry.globals;
 
+import com.oddfry.logic.RuleGenerator;
 import com.oddfry.update.*;
 
 /**
@@ -66,8 +67,21 @@ public class Globals {
 	/**
 	 * Loose
 	 */
-	public void loose() {
-		getGame().loose();
+	public void lose() {
+		getGame().lose();
+	}
+	
+	
+	/**
+	 * Next, if win new level, if loose menus
+	 */
+	public void next() {
+		if (getGame().hasWon()) {
+			setGame();
+		} else if (getGame().hasLost()) {
+			RuleGenerator.GetInstance().reset();
+			setMenu();
+		}
 	}
 	
 	

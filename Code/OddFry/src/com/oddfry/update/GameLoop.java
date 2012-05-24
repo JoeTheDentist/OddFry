@@ -32,9 +32,9 @@ public class GameLoop extends UpdateLoop {
 	/**
 	 * Loose
 	 */
-	public void loose() {
-		loose_ = true;
-		msg_ = "You Loose";
+	public void lose() {
+		lose_ = true;
+		msg_ = "You Lose";
 	}
 	
 	
@@ -56,6 +56,24 @@ public class GameLoop extends UpdateLoop {
 	}
 	
 	
+	/**
+	 * Getter
+	 * @return if the level is won
+	 */
+	public boolean hasWon() {
+		return win_;
+	}
+	
+	
+	/**
+	 * Getter
+	 * @return if the level is lost
+	 */
+	public boolean hasLost() {
+		return lose_;
+	}
+	
+	
 	/* PROTECTED */
 	@Override
 	final protected void update() {
@@ -63,7 +81,7 @@ public class GameLoop extends UpdateLoop {
 		back_.draw();
 		fries_.move();
 		fries_.draw();
-		if ( loose_ || win_ ) {
+		if ( lose_ || win_ ) {
 			getScreen().drawTextCenter(msg_);
 		}
 		getScreen().unlock();
@@ -87,7 +105,7 @@ public class GameLoop extends UpdateLoop {
 	private Rule rule_ = RuleGenerator.GetInstance().getRule();
 	private Score score_ = Score.GetInstance();
 	private Time time_ = Time.GetInstance();
-	private boolean loose_ = false;
+	private boolean lose_ = false;
 	private boolean win_ = false;
 	private String msg_;
 }

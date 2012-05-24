@@ -5,10 +5,18 @@ public class RuleGenerator {
 	/* PUBLIC */
 	/*		CLASS */
 	/**
-	 * 
+	 * Get next rule
 	 */
 	public void next() {
-		
+		//TODO
+	}
+	
+	
+	/**
+	 * Reset, start rules for menu
+	 */
+	public void reset() {
+		//TODO
 	}
 	
 	

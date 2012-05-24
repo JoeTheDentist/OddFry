@@ -38,13 +38,18 @@ public class OddFry extends Actor implements Controlled {
 	 * @param y
 	 */
 	public void point(float x, float y) {
-		if (x >= getX() - 10 
-			    && x < getX() + getW() + 10
-			    && y >= getY() - 10
-			    && y < getY() + getH() + 10) {
-			Globals.GetInstance().win();
+		if (!touched_) {
+			if (x >= getX() - 10 
+				    && x < getX() + getW() + 10
+				    && y >= getY() - 10
+				    && y < getY() + getH() + 10) {
+				Globals.GetInstance().win();
+			} else {
+				Globals.GetInstance().lose();
+			}
+			touched_ = true;
 		} else {
-			Globals.GetInstance().loose();
+			Globals.GetInstance().next();
 		}
 	}
 
@@ -118,4 +123,5 @@ public class OddFry extends Actor implements Controlled {
 	private Direction lastDirection_;
 	private Direction lastPolar_;
 	private Direction lastSide_;
+	private boolean touched_ = false;
 }
