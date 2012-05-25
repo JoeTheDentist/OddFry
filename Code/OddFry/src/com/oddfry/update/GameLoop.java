@@ -1,6 +1,7 @@
 package com.oddfry.update;
 
 import com.oddfry.actors.FriesCrowd;
+import com.oddfry.audio.MusicManager;
 import com.oddfry.controls.GameController;
 import com.oddfry.graphics.Background;
 import com.oddfry.logic.Rule;
@@ -22,6 +23,7 @@ public class GameLoop extends UpdateLoop {
 	 */
 	public GameLoop() {
 		RuleGenerator.GetInstance().next();
+		MusicManager.GetInstance().setGameMusicOnce();
 		back_ = new Background();
 		fries_ = new FriesCrowd();
 		GameController controller = new GameController();

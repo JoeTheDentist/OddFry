@@ -33,6 +33,8 @@ public class FriesCrowd {
 			fries_.add(fry);
 		}
 		oddFry_ = new OddFry();
+		oddFry_.setX(rand.nextFloat()*Screen.GetInstance().getW());
+		oddFry_.setY(rand.nextFloat()*Screen.GetInstance().getH());
 		fries_.add(oddFry_);
 	}
 	

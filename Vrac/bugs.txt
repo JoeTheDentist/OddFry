@@ -3,3 +3,5 @@
 - Pause
 - Rules
 - Transitions
+- Sounds
+- Music => more continuous

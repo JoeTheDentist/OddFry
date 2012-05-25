@@ -1,6 +1,7 @@
 package com.oddfry.update;
 
 import com.oddfry.actors.FriesCrowd;
+import com.oddfry.audio.MusicManager;
 import com.oddfry.controls.MenuController;
 import com.oddfry.graphics.Background;
 import com.oddfry.graphics.Menu;
@@ -18,6 +19,7 @@ public class MenuLoop extends UpdateLoop {
 	 * Constructor
 	 */
 	public MenuLoop() {
+		MusicManager.GetInstance().setMenuMusicOnce();
 		back_ = new Background();
 		fries_ = new FriesCrowd();
 		menu_ = new Menu();
