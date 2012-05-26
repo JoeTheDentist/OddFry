@@ -1,5 +1,6 @@
 package com.oddfry.update;
 
+import com.oddfry.globals.Globals;
 import com.oddfry.graphics.Screen;
 
 /**
@@ -16,6 +17,8 @@ public abstract class UpdateLoop extends Thread {
 	 */
 	public UpdateLoop() {
 		screen_ = Screen.GetInstance();
+		lastUpdate_ = Globals.GetInstance().getTime();
+		lastlastUpdate_ = lastUpdate_;
 	}
 	
 	
@@ -43,9 +46,20 @@ public abstract class UpdateLoop extends Thread {
 	public void run() {
 		setRunning(true);
 		while (isRunning()) {
+			lastlastUpdate_ = lastUpdate_;
+			lastUpdate_ = Globals.GetInstance().getTime();
 			update();
 			postUpdate();
 		}
+	}
+	
+	
+	/**
+	 * Get delta time
+	 * @return delta time
+	 */
+	public float getDt() {
+		return lastUpdate_ - lastlastUpdate_;
 	}
 	
 	
@@ -74,4 +88,6 @@ public abstract class UpdateLoop extends Thread {
 	/* PRIVATE */
 	private Screen screen_;
 	private boolean running_;
+	private int lastUpdate_;
+	private int lastlastUpdate_;
 }

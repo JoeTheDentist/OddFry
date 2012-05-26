@@ -103,6 +103,15 @@ public class Globals {
 	}
 	
 	
+	/**
+	 * Get delta time
+	 * @return delta time
+	 */
+	public float getDt() {
+		return loop_.getDt();
+	}
+	
+	
 	/*		STATIC */
 	synchronized public static Globals GetInstance() {
 		if ( INSTANCE_ == null) {
