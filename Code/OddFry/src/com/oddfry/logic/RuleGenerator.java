@@ -8,7 +8,12 @@ public class RuleGenerator {
 	 * Get next rule
 	 */
 	public void next() {
-		//TODO
+		currentIndex_++;
+		if (currentIndex_ == 0) {
+			currentRule_ = new RuleMenu();
+		} else {
+			currentRule_ = new RuleCircle();
+		}
 	}
 	
 	
@@ -16,7 +21,7 @@ public class RuleGenerator {
 	 * Reset, start rules for menu
 	 */
 	public void reset() {
-		//TODO
+		currentIndex_ = 0;
 	}
 	
 	
@@ -41,6 +46,7 @@ public class RuleGenerator {
 	/* PRIVATE */
 	/*		CLASS */
 	private Rule currentRule_;
+	private int currentIndex_;
 	
 	
 	/**

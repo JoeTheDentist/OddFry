@@ -1,9 +1,7 @@
 package com.oddfry.physics;
 
-import java.util.Random;
-
 import com.oddfry.globals.Globals;
-import com.oddfry.graphics.Screen;
+
 
 /**
  * Behavior of all fries for the menu

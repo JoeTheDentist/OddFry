@@ -23,7 +23,7 @@ public class OddFry extends Actor implements Controlled {
 	public OddFry() {
 		super();
 		mover_ = new Mover(this, RuleGenerator.GetInstance().getRule().getOddUpdater());
-		anim_ = new Animation(R.drawable.oddfry_states);
+		anim_ = new Animation(R.drawable.fry_states);
 		//TODO, set good img and period
 		int tab[] = {0,1,2,3};
 		anim_.setAnimation(tab, 100);
