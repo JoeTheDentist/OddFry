@@ -1,7 +1,6 @@
 
-- Icons
-- Rules
-- Sounds
+- Rules (+5)
+- Score
 - Music => more continuous
 - Game controller => not directly to the OddFry
 - Memory Analysis => check for leaks
