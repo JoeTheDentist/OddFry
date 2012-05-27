@@ -1,5 +1,7 @@
 package com.oddfry.logic;
 
+import com.oddfry.globals.Globals;
+import com.oddfry.graphics.Screen;
 import com.oddfry.physics.MoveUpdater;
 
 /**
@@ -27,15 +29,21 @@ public abstract class Rule {
 	
 	
 	/**
-	 * 
+	 * Get random x for odd fry
 	 * @return
 	 */
-	public abstract float getX();
-	
-	
+	public float getX() {
+		return Globals.GetInstance().
+				getRand().nextFloat()*Screen.GetInstance().getW();
+	}
+
+
 	/**
-	 * 
+	 * Get random y for odd fry
 	 * @return
 	 */
-	public abstract float getY();
+	public float getY() {
+		return Globals.GetInstance().
+				getRand().nextFloat()*Screen.GetInstance().getH();
+	}
 }

@@ -48,6 +48,7 @@ public class OddFry extends Actor implements Controlled {
 				Globals.GetInstance().lose();
 			}
 			touched_ = true;
+			getDrawer().setCircle(true);
 		} else {
 			Globals.GetInstance().next();
 		}

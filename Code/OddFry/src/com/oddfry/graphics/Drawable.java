@@ -9,5 +9,7 @@ package com.oddfry.graphics;
 public interface Drawable {
 	public float getX();
 	public float getY();
+	public float getH();
+	public float getW();
 	public Image getImage();
 }

@@ -166,17 +166,17 @@ public abstract class Actor implements Drawable, Movable, Comparable<Actor> {
 	protected abstract void lookDown();
 	
 	
-	/* PRIVATE */
-	private Drawer drawer_;
-	
-	
 	/**
 	 * Getter
 	 * @return drawer
 	 */
-	private Drawer getDrawer() {
+	protected Drawer getDrawer() {
 		return drawer_;
 	}
+	
+	
+	/* PRIVATE */
+	private Drawer drawer_;
 	
 	
 	/**

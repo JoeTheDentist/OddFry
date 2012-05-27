@@ -1,11 +1,8 @@
 
 - Icons
-- Pause
 - Rules
-- Transitions
 - Sounds
 - Music => more continuous
 - Game controller => not directly to the OddFry
 - Memory Analysis => check for leaks
-- Show the odd one at the end of the game (circle)
 - Rand spawn, avoid center for odd one with the circle rule

@@ -186,7 +186,13 @@ SurfaceHolder.Callback {
 	}
 
 
-
+	/**
+	 * 
+	 * @param menu
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	int choiceMenu(List<String> menu, float x, float y) {
 		//TODO better
 		if (y > 10 && y < 200) {
@@ -195,6 +201,21 @@ SurfaceHolder.Callback {
 			return 1;
 		} else {
 			return -1;
+		}
+	}
+	
+	
+	/**
+	 * 
+	 * @param cx
+	 * @param cy
+	 * @param r
+	 */
+	void drawCircle(float cx, float cy, float r) {
+		if (canvas_ != null) {
+			canvas_.drawCircle(cx, cy, r, circlePaint_);
+		} else {
+			Log.e("Screen", "### Can't draw");
 		}
 	}
 
@@ -206,6 +227,7 @@ SurfaceHolder.Callback {
 	private Paint menuPaint_;
 	private Paint normalTextPaint_;
 	private Paint warningTextPaint_;
+	private Paint circlePaint_;
 	private float h_;
 	private float w_;
 
@@ -233,6 +255,10 @@ SurfaceHolder.Callback {
 		warningTextPaint_.setStyle(Style.FILL);
 		warningTextPaint_.setTextSize(40);
 		normalTextPaint_.setTypeface(Typeface.MONOSPACE);
+		circlePaint_ = new Paint();
+		circlePaint_.setColor(Color.WHITE);
+		circlePaint_.setStyle(Style.STROKE);
+		circlePaint_.setStrokeWidth(5);
 		ResourcesUtil.GetActivity().setContentView(this);
 		getHolder().addCallback(this);
 		setFocusable(true);
