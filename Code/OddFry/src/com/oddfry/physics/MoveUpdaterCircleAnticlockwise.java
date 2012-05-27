@@ -1,7 +1,5 @@
 package com.oddfry.physics;
 
-import java.util.Random;
-
 import com.oddfry.globals.Globals;
 import com.oddfry.graphics.Screen;
 
@@ -13,7 +11,6 @@ public class MoveUpdaterCircleAnticlockwise extends MoveUpdater {
 	 */
 	public MoveUpdaterCircleAnticlockwise() {
 		super();
-		rand_ = new Random();
 	}
 	
 	
@@ -21,8 +18,8 @@ public class MoveUpdaterCircleAnticlockwise extends MoveUpdater {
 	public void move(Movable movable) {
 		float move = SPEED_*Globals.GetInstance().getDt() / 1000;
 		
-		movable.moveX(-fx(movable)*move+(SPEED_*rand_.nextFloat()-SPEED_/2)/4);
-		movable.moveY(-fy(movable)*move+(SPEED_*rand_.nextFloat()-SPEED_/2)/4);
+		movable.moveX(-fx(movable)*move+getOffsetX()*move/2);
+		movable.moveY(-fy(movable)*move+getOffsetY()*move/2);
 		
 		setInScreen(movable);
 	}
@@ -30,9 +27,6 @@ public class MoveUpdaterCircleAnticlockwise extends MoveUpdater {
 	
 	/* PRIVATE */
 	/*		CLASS */
-	private Random rand_;
-	
-	
 	private float fx(Movable m) {
 		float line1 = Screen.GetInstance().getH()/Screen.GetInstance().getW()*m.getX();
 		float line2 = -Screen.GetInstance().getH()/Screen.GetInstance().getW()*m.getX()+

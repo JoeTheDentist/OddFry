@@ -24,4 +24,18 @@ public abstract class Rule {
 	 * @return
 	 */
 	public abstract MoveUpdater getOddUpdater();
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract float getX();
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract float getY();
 }

@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.oddfry.controls.Controller;
 import com.oddfry.graphics.Screen;
+import com.oddfry.logic.RuleGenerator;
 
 /**
  * All the normal fries.</br>
@@ -33,8 +34,8 @@ public class FriesCrowd {
 			fries_.add(fry);
 		}
 		oddFry_ = new OddFry();
-		oddFry_.setX(rand.nextFloat()*Screen.GetInstance().getW());
-		oddFry_.setY(rand.nextFloat()*Screen.GetInstance().getH());
+		oddFry_.setX(RuleGenerator.GetInstance().getRule().getX());
+		oddFry_.setY(RuleGenerator.GetInstance().getRule().getY());
 		fries_.add(oddFry_);
 	}
 	

@@ -24,22 +24,8 @@ public class MoveUpdaterMenu extends MoveUpdater {
 	public void move(Movable movable) {
 		float move = SPEED_*Globals.GetInstance().getDt() / 1000;
 		
-		switch (getDir()) {
-		case LEFT:
-			movable.moveX(-move);
-			break;
-		case RIGHT:
-			movable.moveX(move);
-			break;
-		case UP:
-			movable.moveY(-move);
-			break;
-		case DOWN:
-			movable.moveY(move);
-			break;
-		default:
-			break;
-		}
+		movable.moveX(getOffsetX()*move);
+		movable.moveY(getOffsetY()*move);
 		
 		setInScreen(movable);
 	}

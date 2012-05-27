@@ -3,7 +3,6 @@ package com.oddfry.update;
 import com.oddfry.actors.FriesCrowd;
 import com.oddfry.audio.MusicManager;
 import com.oddfry.controls.GameController;
-import com.oddfry.globals.Globals;
 import com.oddfry.graphics.Background;
 import com.oddfry.graphics.HUD;
 import com.oddfry.logic.Rule;

@@ -54,6 +54,36 @@ public abstract class MoveUpdater {
 	
 	
 	/**
+	 * Get random offset x
+	 * @return
+	 */
+	protected float getOffsetX() {
+		if (getDir() == Direction.LEFT) {
+			return -1;
+		} else if (getDir() == Direction.RIGHT) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
+	
+	/**
+	 * Get random offset y
+	 * @return
+	 */
+	protected float getOffsetY() {
+		if (getDir() == Direction.UP) {
+			return -1;
+		} else if (getDir() == Direction.DOWN) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
+	
+	/**
 	 * Set in screen
 	 * @param movable
 	 */

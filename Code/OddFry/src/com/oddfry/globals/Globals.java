@@ -1,5 +1,7 @@
 package com.oddfry.globals;
 
+import java.util.Random;
+
 import com.oddfry.logic.RuleGenerator;
 import com.oddfry.update.*;
 
@@ -112,6 +114,15 @@ public class Globals {
 	}
 	
 	
+	/**
+	 * Getter
+	 * @return random generator
+	 */
+	public Random getRand() {
+		return rand_;
+	}
+	
+	
 	/*		STATIC */
 	synchronized public static Globals GetInstance() {
 		if ( INSTANCE_ == null) {
@@ -124,13 +135,14 @@ public class Globals {
 	/* PRIVATE */
 	/* 		CLASS */
 	private UpdateLoop loop_;
+	private Random rand_;
 	
 	
 	/**
 	 * Constructor
 	 */
 	private Globals() {
-		
+		rand_ = new Random();
 	}
 	
 	
