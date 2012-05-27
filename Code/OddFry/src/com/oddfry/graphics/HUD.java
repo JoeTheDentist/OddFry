@@ -29,7 +29,7 @@ public class HUD {
 	 */
 	public void draw() {
 		Screen.GetInstance().drawTextLeft(Integer.toString(score_.getScore()), false);
-		Screen.GetInstance().drawTextRight(Integer.toString(time_.getTimeLeft()), time_.getTimeLeft() > 0);
+		Screen.GetInstance().drawTextRight(Integer.toString(time_.getTimeLeft()), time_.getTimeLeft() < 0);
 	}
 	
 	

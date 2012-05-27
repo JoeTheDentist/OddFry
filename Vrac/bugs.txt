@@ -1,7 +1,10 @@
 
+- HUD => score qnd time
 - Icons
 - Pause
 - Rules
 - Transitions
 - Sounds
 - Music => more continuous
+- Game controller
+- Memory Analysis => check for leaks

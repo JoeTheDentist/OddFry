@@ -1,5 +1,6 @@
 package com.oddfry.logic;
 
+import com.oddfry.globals.Globals;
 
 /**
  * Score of the player</br>
@@ -9,13 +10,19 @@ package com.oddfry.logic;
  *
  */
 public class Score {
+	
 	/* PUBLIC */
 	/* 		CLASS */
 	/**
 	 * Update the score
 	 */
 	public void update() {
-		//TODO
+		if (Time.GetInstance().getTimeLeft()<0) {
+			score_ -= Globals.GetInstance().getDt()*MULT_;
+		}
+		if ( score_ < 0) {
+			Globals.GetInstance().lose();
+		}
 	}
 	
 	
@@ -25,6 +32,25 @@ public class Score {
 	 */
 	public int getScore() {
 		return score_;
+	}
+	
+	
+	/**
+	 * Add time to score, at the end of the game
+	 * @param time
+	 */
+	public void addTime(float time) {
+		if (time>0) {
+			score_ += time*MULT_;
+		}
+	}
+	
+	
+	/**
+	 * Reset the score
+	 */
+	public void reset() {
+		score_ = 0;
 	}
 	
 	
@@ -52,4 +78,5 @@ public class Score {
 	
 	/*		STATIC */
 	private static Score INSTANCE_;
+	private static final int MULT_ = 5;
 }

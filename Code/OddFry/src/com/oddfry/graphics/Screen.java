@@ -157,8 +157,11 @@ SurfaceHolder.Callback {
 	 */
 	void drawTextRight(String msg, boolean warning) {
 		if (canvas_ != null) {
-			//TODO pos, warning
-			canvas_.drawText(msg, 0, 0, normalTextPaint_);
+			if (warning) {
+				canvas_.drawText(msg, w_-200, 50, warningTextPaint_);
+			} else {
+				canvas_.drawText(msg, w_-200, 50, normalTextPaint_);
+			}
 		} else {
 			Log.e("Screen", "### Can't draw");
 		}
@@ -171,9 +174,12 @@ SurfaceHolder.Callback {
 	 * @param warning
 	 */
 	void drawTextLeft(String msg, boolean warning) {
-		//TODO pos, warning
 		if (canvas_ != null) {
-			canvas_.drawText(msg, 0, 0, warningTextPaint_);
+			if (warning) {
+				canvas_.drawText(msg, 50, 50, warningTextPaint_);
+			} else {
+				canvas_.drawText(msg, 50, 50, normalTextPaint_);
+			}
 		} else {
 			Log.e("Screen", "### Can't draw");
 		}
@@ -220,12 +226,12 @@ SurfaceHolder.Callback {
 		normalTextPaint_ = new Paint();
 		normalTextPaint_.setColor(Color.WHITE);
 		normalTextPaint_.setStyle(Style.FILL);
-		normalTextPaint_.setTextSize(20);
+		normalTextPaint_.setTextSize(40);
 		normalTextPaint_.setTypeface(Typeface.MONOSPACE);
 		warningTextPaint_ = new Paint();
 		warningTextPaint_.setColor(Color.RED);
 		warningTextPaint_.setStyle(Style.FILL);
-		warningTextPaint_.setTextSize(20);
+		warningTextPaint_.setTextSize(40);
 		normalTextPaint_.setTypeface(Typeface.MONOSPACE);
 		ResourcesUtil.GetActivity().setContentView(this);
 		getHolder().addCallback(this);
