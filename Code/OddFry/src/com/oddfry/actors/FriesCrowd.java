@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Random;
 
-import com.oddfry.controls.Controller;
 import com.oddfry.graphics.Screen;
 import com.oddfry.logic.RuleGenerator;
 
@@ -62,11 +61,13 @@ public class FriesCrowd {
 	
 	
 	/**
-	 * Setter
-	 * @param controller
+	 * Touched?
+	 * @param x
+	 * @param y
+	 * @return if touched or not
 	 */
-	public void setController(Controller controller) {
-		controller.setTarget(oddFry_);
+	public boolean touched(float x, float y) {
+		return oddFry_.touched(x, y);
 	}
 	
 	

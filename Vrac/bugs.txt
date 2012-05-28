@@ -1,7 +1,8 @@
+Priority
 
-- Rules (+5)
-- Score
-- Music => more continuous
-- Game controller => not directly to the OddFry
-- Memory Analysis => check for leaks
-- Rand spawn, avoid center for odd one with the circle rule
+1- Rules (+5)
+2- Score, more progressive
+2- Music => more continuous
+2- Memory Analysis => check for leaks
+2- Rand spawn, avoid center for odd one with the circle rule
+3- Pause thread if in background

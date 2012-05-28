@@ -1,6 +1,7 @@
 package com.oddfry.controls;
 
 import com.oddfry.actors.OddFry;
+import com.oddfry.update.GameLoop;
 
 import android.view.MotionEvent;
 
@@ -26,7 +27,7 @@ public class GameController extends Controller {
 	void touch(MotionEvent event) {
 		if ( event.getActionMasked() == MotionEvent.ACTION_UP || 
 				event.getActionMasked() == MotionEvent.ACTION_POINTER_UP ) {
-			((OddFry)target_).point(event.getX(), event.getY());
+			((GameLoop)target_).point(event.getX(), event.getY());
 		}
 	}
 

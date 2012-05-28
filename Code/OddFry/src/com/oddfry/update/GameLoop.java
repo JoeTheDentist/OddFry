@@ -2,7 +2,9 @@ package com.oddfry.update;
 
 import com.oddfry.actors.FriesCrowd;
 import com.oddfry.audio.MusicManager;
+import com.oddfry.controls.Controlled;
 import com.oddfry.controls.GameController;
+import com.oddfry.globals.Globals;
 import com.oddfry.graphics.Background;
 import com.oddfry.graphics.HUD;
 import com.oddfry.logic.Rule;
@@ -16,7 +18,7 @@ import com.oddfry.logic.Time;
  * @author Guillaume Berard
  *
  */
-public class GameLoop extends UpdateLoop {
+public class GameLoop extends UpdateLoop implements Controlled {
 
 	/* PUBLIC */
 	/**
@@ -31,10 +33,10 @@ public class GameLoop extends UpdateLoop {
 		back_ = new Background();
 		fries_ = new FriesCrowd();
 		GameController controller = new GameController();
-		fries_.setController(controller);
+		controller.setTarget(this);
 	}
-	
-	
+
+
 	/**
 	 * Loose
 	 */
@@ -43,8 +45,8 @@ public class GameLoop extends UpdateLoop {
 		msg_ = "You Lose";
 		Score.GetInstance().reset();
 	}
-	
-	
+
+
 	/**
 	 * Win
 	 */
@@ -53,8 +55,8 @@ public class GameLoop extends UpdateLoop {
 		msg_ = "You Win";
 		score_.addTime(time_.getTimeLeft());
 	}
-	
-	
+
+
 	/**
 	 * Getter
 	 * @return Current rule
@@ -62,8 +64,8 @@ public class GameLoop extends UpdateLoop {
 	public Rule getRule() {
 		return rule_;
 	}
-	
-	
+
+
 	/**
 	 * Getter
 	 * @return if the level is won
@@ -71,8 +73,8 @@ public class GameLoop extends UpdateLoop {
 	public boolean hasWon() {
 		return win_;
 	}
-	
-	
+
+
 	/**
 	 * Getter
 	 * @return if the level is lost
@@ -80,8 +82,26 @@ public class GameLoop extends UpdateLoop {
 	public boolean hasLost() {
 		return lose_;
 	}
-	
-	
+
+
+	/**
+	 * When point the screen
+	 * @param x
+	 * @param y
+	 */
+	public void point(float x, float y) {
+		if (!win_ && !lose_) {
+			if (fries_.touched(x, y)) {
+				Globals.GetInstance().win();
+			} else {
+				Globals.GetInstance().lose();
+			}
+		} else {
+			Globals.GetInstance().next();
+		}
+	}
+
+
 	/* PROTECTED */
 	@Override
 	final protected void update() {
@@ -99,7 +119,7 @@ public class GameLoop extends UpdateLoop {
 		getScreen().unlock();
 	}
 
-	
+
 	@Override
 	protected void postUpdate() {
 		//TODO real loop
@@ -109,8 +129,8 @@ public class GameLoop extends UpdateLoop {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 	/* PRIVATE */
 	private FriesCrowd fries_;
 	private Background back_;

@@ -2,7 +2,6 @@ package com.oddfry.actors;
 
 import com.oddfry.R;
 import com.oddfry.controls.Controlled;
-import com.oddfry.globals.Globals;
 import com.oddfry.graphics.Animation;
 import com.oddfry.logic.RuleGenerator;
 import com.oddfry.physics.Direction;
@@ -30,28 +29,20 @@ public class OddFry extends Actor implements Controlled {
 		x_ = 100;
 		y_ = 100;
 	}
-	
-	
+
+
 	/**
-	 * Point the odd fry?
+	 * Touched the odd fry?</br>
+	 * Warning call once per game, circle the fry when called
 	 * @param x
 	 * @param y
 	 */
-	public void point(float x, float y) {
-		if (!touched_) {
-			if (x >= getX() - 10 
-				    && x < getX() + getW() + 10
-				    && y >= getY() - 10
-				    && y < getY() + getH() + 10) {
-				Globals.GetInstance().win();
-			} else {
-				Globals.GetInstance().lose();
-			}
-			touched_ = true;
-			getDrawer().setCircle(true);
-		} else {
-			Globals.GetInstance().next();
-		}
+	public boolean touched(float x, float y) {
+		getDrawer().setCircle(true);
+		return (x >= getX() - 10 
+				&& x < getX() + getW() + 10
+				&& y >= getY() - 10
+				&& y < getY() + getH() + 10);
 	}
 
 
@@ -124,5 +115,4 @@ public class OddFry extends Actor implements Controlled {
 	private Direction lastDirection_;
 	private Direction lastPolar_;
 	private Direction lastSide_;
-	private boolean touched_ = false;
 }
