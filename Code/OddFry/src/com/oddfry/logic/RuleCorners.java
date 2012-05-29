@@ -2,22 +2,23 @@ package com.oddfry.logic;
 
 import com.oddfry.physics.MoveUpdater;
 import com.oddfry.physics.MoveUpdaterCircleAnticlockwise;
-import com.oddfry.physics.MoveUpdaterCircleClockwise;
+import com.oddfry.physics.MoveUpdaterStayInQuarter;
 
-public class RuleCircle extends Rule {
+public class RuleCorners extends Rule {
 
 	@Override
 	public MoveUpdater getNormalUpdater() {
-		return new MoveUpdaterCircleAnticlockwise();
+		return new MoveUpdaterStayInQuarter();
 	}
 
 	@Override
 	public MoveUpdater getOddUpdater() {
-		return new MoveUpdaterCircleClockwise();
+		return new MoveUpdaterCircleAnticlockwise();
 	}
 
 	@Override
 	public int getTimeToSolve() {
-		return 10000;
+		return 30000;
 	}
+
 }

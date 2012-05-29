@@ -1,7 +1,5 @@
 package com.oddfry.physics;
 
-import com.oddfry.globals.Globals;
-
 
 /**
  * Behavior of all fries for the menu
@@ -20,21 +18,21 @@ public class MoveUpdaterMenu extends MoveUpdater {
 	}
 	
 	
+	/* PROTECTED */
 	@Override
-	public void move(Movable movable) {
-		float move = SPEED_*Globals.GetInstance().getDt() / 1000;
-		
-		movable.moveX(getOffsetX()*move);
-		movable.moveY(getOffsetY()*move);
-		
-		setInScreen(movable);
+	protected int fx(Movable m) {
+		return 0;
+	}
+	
+	
+	@Override
+	protected int fy(Movable m) {
+		return 0;
 	}
 	
 
-	/* PRIVATE */
-	/*		CLASS */
-	
-	
-	/*		STATIC */
-	private static final float SPEED_ = 25;	//pixels per second
+	@Override
+	protected float getSpeed() {
+		return SPEED_*2;
+	}
 }

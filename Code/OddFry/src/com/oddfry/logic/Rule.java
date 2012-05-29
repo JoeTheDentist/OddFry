@@ -29,6 +29,13 @@ public abstract class Rule {
 	
 	
 	/**
+	 * 
+	 * @return
+	 */
+	public abstract int getTimeToSolve();
+	
+	
+	/**
 	 * Get random x for odd fry
 	 * @return
 	 */

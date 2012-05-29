@@ -12,7 +12,7 @@ public class RuleGenerator {
 		if (currentIndex_ == 0) {
 			currentRule_ = new RuleMenu();
 		} else {
-			currentRule_ = new RuleCircle();
+			currentRule_ = new RuleCorners();
 		}
 	}
 	

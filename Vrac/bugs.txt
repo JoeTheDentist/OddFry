@@ -1,8 +1,10 @@
 Priority
 
-1- Rules (+5)
+1- Rule series rand ?
+1- Rules (+4)
+2- Possible: one single MoveUpdater for every normal fries
 2- Score, more progressive
+2- Pause thread if in background
 2- Music => more continuous
-2- Memory Analysis => check for leaks
-2- Rand spawn, avoid center for odd one with the circle rule
-3- Pause thread if in background
+3- Memory Analysis => check for leaks
+3- Rand spawn, avoid center for odd one with the circle rule

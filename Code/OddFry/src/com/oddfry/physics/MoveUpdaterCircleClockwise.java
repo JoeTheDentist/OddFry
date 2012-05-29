@@ -1,6 +1,5 @@
 package com.oddfry.physics;
 
-import com.oddfry.globals.Globals;
 import com.oddfry.graphics.Screen;
 
 public class MoveUpdaterCircleClockwise extends MoveUpdater {
@@ -12,22 +11,11 @@ public class MoveUpdaterCircleClockwise extends MoveUpdater {
 	public MoveUpdaterCircleClockwise() {
 		super();
 	}
-	
-	
-	@Override
-	public void move(Movable movable) {
-		float move = SPEED_*Globals.GetInstance().getDt() / 1000;
-		
-		movable.moveX(fx(movable)*move+getOffsetX()*move/2);
-		movable.moveY(fy(movable)*move+getOffsetY()*move/2);
-		
-		setInScreen(movable);
-	}
 
 	
-	/* PRIVATE */
-	/*		CLASS */
-	private float fx(Movable m) {
+	/* PROTECTED */
+	@Override
+	protected int fx(Movable m) {
 		float line1 = Screen.GetInstance().getH()/Screen.GetInstance().getW()*m.getX();
 		float line2 = -Screen.GetInstance().getH()/Screen.GetInstance().getW()*m.getX()+
 				Screen.GetInstance().getH();
@@ -42,7 +30,8 @@ public class MoveUpdaterCircleClockwise extends MoveUpdater {
 	}
 	
 	
-	private float fy(Movable m) {
+	@Override
+	protected int fy(Movable m) {
 		float line1 = Screen.GetInstance().getH()/Screen.GetInstance().getW()*m.getX();
 		float line2 = -Screen.GetInstance().getH()/Screen.GetInstance().getW()*m.getX()+
 				Screen.GetInstance().getH();
@@ -55,8 +44,4 @@ public class MoveUpdaterCircleClockwise extends MoveUpdater {
 			return 0;
 		}
 	}
-	
-	
-	/*		STATIC */
-	private static final float SPEED_ = 25;	//pixels per second
 }

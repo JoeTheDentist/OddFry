@@ -1,6 +1,5 @@
 package com.oddfry.controls;
 
-import com.oddfry.actors.OddFry;
 import com.oddfry.update.GameLoop;
 
 import android.view.MotionEvent;

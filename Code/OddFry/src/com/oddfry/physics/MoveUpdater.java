@@ -19,10 +19,36 @@ public abstract class MoveUpdater {
 	 * Move
 	 * @param movable
 	 */
-	public abstract void move(Movable movable);
+	public void move(Movable movable) {
+		float move = getSpeed()*Globals.GetInstance().getDt() / 1000;
+		
+		movable.moveX(fx(movable)*move+getOffsetX()*move/2);
+		movable.moveY(fy(movable)*move+getOffsetY()*move/2);
+		
+		setInScreen(movable);
+	}
 	
 	
 	/* PROTECTED */
+	protected static final float SPEED_ = 25;	//pixels per second
+	
+	
+	/**
+	 * 
+	 * @param m
+	 * @return
+	 */
+	protected abstract int fx(Movable m);
+	
+	
+	/**
+	 * 
+	 * @param m
+	 * @return
+	 */
+	protected abstract int fy(Movable m);
+	
+	
 	/**
 	 * Getter
 	 * @return direction
@@ -102,6 +128,15 @@ public abstract class MoveUpdater {
 			movable.setY(Screen.GetInstance().getH()-movable.getH());
 			lastDirection_ = Direction.LEFT;
 		}
+	}
+	
+	
+	/**
+	 * Get speed
+	 * @return speed
+	 */
+	protected float getSpeed() {
+		return SPEED_;
 	}
 	
 	

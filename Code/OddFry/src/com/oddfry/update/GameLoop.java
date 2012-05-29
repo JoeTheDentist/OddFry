@@ -27,8 +27,8 @@ public class GameLoop extends UpdateLoop implements Controlled {
 	public GameLoop() {
 		RuleGenerator.GetInstance().next();
 		MusicManager.GetInstance().setGameMusicOnce();
-		//TODO calc time
-		time_.setTime(10000);
+		//TODO calc time decrease ?
+		time_.setTime(RuleGenerator.GetInstance().getRule().getTimeToSolve());
 		hud_ = new HUD();
 		back_ = new Background();
 		fries_ = new FriesCrowd();

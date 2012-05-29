@@ -23,11 +23,11 @@ public class MoveUpdaterCircleAnticlockwise extends MoveUpdater {
 		
 		setInScreen(movable);
 	}
-
 	
-	/* PRIVATE */
-	/*		CLASS */
-	private float fx(Movable m) {
+	
+	/* PROTECTED */
+	@Override
+	protected int fx(Movable m) {
 		float line1 = Screen.GetInstance().getH()/Screen.GetInstance().getW()*m.getX();
 		float line2 = -Screen.GetInstance().getH()/Screen.GetInstance().getW()*m.getX()+
 				Screen.GetInstance().getH();
@@ -42,7 +42,8 @@ public class MoveUpdaterCircleAnticlockwise extends MoveUpdater {
 	}
 	
 	
-	private float fy(Movable m) {
+	@Override
+	protected int fy(Movable m) {
 		float line1 = Screen.GetInstance().getH()/Screen.GetInstance().getW()*m.getX();
 		float line2 = -Screen.GetInstance().getH()/Screen.GetInstance().getW()*m.getX()+
 				Screen.GetInstance().getH();
@@ -55,8 +56,4 @@ public class MoveUpdaterCircleAnticlockwise extends MoveUpdater {
 			return 0;
 		}
 	}
-	
-	
-	/*		STATIC */
-	private static final float SPEED_ = 25;	//pixels per second
 }
