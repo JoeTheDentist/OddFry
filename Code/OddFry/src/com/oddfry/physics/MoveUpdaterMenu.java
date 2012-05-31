@@ -32,7 +32,7 @@ public class MoveUpdaterMenu extends MoveUpdater {
 	
 
 	@Override
-	protected float getSpeed() {
-		return SPEED_*2;
+	protected float getOffsetRate() {
+		return 1;
 	}
 }

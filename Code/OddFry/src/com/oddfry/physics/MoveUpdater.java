@@ -22,15 +22,15 @@ public abstract class MoveUpdater {
 	public void move(Movable movable) {
 		float move = getSpeed()*Globals.GetInstance().getDt() / 1000;
 		
-		movable.moveX(fx(movable)*move+getOffsetX()*move/2);
-		movable.moveY(fy(movable)*move+getOffsetY()*move/2);
+		movable.moveX(fx(movable)*move+getOffsetX()*getOffsetRate()*move);
+		movable.moveY(fy(movable)*move+getOffsetY()*getOffsetRate()*move);
 		
 		setInScreen(movable);
 	}
 	
 	
 	/* PROTECTED */
-	protected static final float SPEED_ = 25;	//pixels per second
+	protected static final float SPEED_ = 35;	//pixels per second
 	
 	
 	/**
@@ -137,6 +137,15 @@ public abstract class MoveUpdater {
 	 */
 	protected float getSpeed() {
 		return SPEED_;
+	}
+	
+	
+	/**
+	 * Rate of the speed for the offset movement
+	 * @return rate
+	 */
+	protected float getOffsetRate() {
+		return 0.5f;
 	}
 	
 	

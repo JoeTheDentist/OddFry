@@ -105,26 +105,35 @@ public class GameLoop extends UpdateLoop implements Controlled {
 	/* PROTECTED */
 	@Override
 	final protected void update() {
-		getScreen().lock();
-		back_.draw();
+		lastTimeUpdate_ = Globals.GetInstance().getTime();
 		fries_.move();
-		fries_.draw();
-		if ( lose_ || win_ ) {
-			getScreen().drawTextCenter(msg_);
+		if (!skip_) {
+			getScreen().lock();
+			back_.draw();
+			fries_.draw();
+			if ( lose_ || win_ ) {
+				getScreen().drawTextCenter(msg_);
+			} else {
+				time_.update();
+				score_.update();
+				hud_.draw();
+			}
+			getScreen().unlock();
 		} else {
-			time_.update();
-			score_.update();
-			hud_.draw();
+			skip_ = false;
 		}
-		getScreen().unlock();
 	}
 
 
 	@Override
 	protected void postUpdate() {
-		//TODO real loop
+		float timeUpdate = Globals.GetInstance().getTime() - lastTimeUpdate_;
 		try {
-			Thread.sleep(50);
+			if (TIMECYCLE_-timeUpdate > 0) {
+				Thread.sleep((long) (TIMECYCLE_-timeUpdate));
+			} else {
+				skip_ = true;
+			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -132,6 +141,9 @@ public class GameLoop extends UpdateLoop implements Controlled {
 
 
 	/* PRIVATE */
+	/*		CLASS */
+	private float lastTimeUpdate_;
+	private boolean skip_ = false;
 	private FriesCrowd fries_;
 	private Background back_;
 	private Rule rule_ = RuleGenerator.GetInstance().getRule();
@@ -141,4 +153,8 @@ public class GameLoop extends UpdateLoop implements Controlled {
 	private boolean lose_ = false;
 	private boolean win_ = false;
 	private String msg_;
+
+
+	/*		STATIC */
+	private static final float TIMECYCLE_ = 50;
 }

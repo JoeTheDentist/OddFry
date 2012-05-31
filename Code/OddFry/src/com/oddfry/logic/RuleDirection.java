@@ -1,24 +1,24 @@
 package com.oddfry.logic;
 
 import com.oddfry.physics.MoveUpdater;
-import com.oddfry.physics.MoveUpdaterCross;
-import com.oddfry.physics.MoveUpdaterStayInQuarter;
+import com.oddfry.physics.MoveUpdaterHorizontal;
+import com.oddfry.physics.MoveUpdaterVertical;
 
-public class RuleCorners extends Rule {
+public class RuleDirection extends Rule {
 
 	@Override
 	public MoveUpdater getNormalUpdater() {
-		return new MoveUpdaterStayInQuarter();
+		return new MoveUpdaterVertical();
 	}
 
 	@Override
 	public MoveUpdater getOddUpdater() {
-		return new MoveUpdaterCross();
+		return new MoveUpdaterHorizontal();
 	}
 
 	@Override
 	public int getTimeToSolve() {
-		return 25000;
+		return 15000;
 	}
 
 }
