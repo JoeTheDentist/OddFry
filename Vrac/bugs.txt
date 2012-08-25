@@ -1,8 +1,9 @@
 Priority
 
 1- Final score with game over
+1- move = 0 => keep direction
 1- Rules (+2)
-1- More tim for the first level
+1- More time for the first level
 2- Remove buggy fries (stuck in the corner or the middle) => deflaut rand repuse corner and middle
 2- Save best score
 2- MoveUpdater => getRandom according to getDir
