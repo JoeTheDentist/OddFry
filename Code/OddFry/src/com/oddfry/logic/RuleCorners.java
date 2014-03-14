@@ -1,7 +1,7 @@
 package com.oddfry.logic;
 
 import com.oddfry.physics.MoveUpdater;
-import com.oddfry.physics.MoveUpdaterCross;
+import com.oddfry.physics.MoveUpdaterHorizontal;
 import com.oddfry.physics.MoveUpdaterStayInQuarter;
 
 public class RuleCorners extends Rule {
@@ -13,7 +13,7 @@ public class RuleCorners extends Rule {
 
 	@Override
 	public MoveUpdater getOddUpdater() {
-		return new MoveUpdaterCross();
+		return new MoveUpdaterHorizontal();
 	}
 
 	@Override
